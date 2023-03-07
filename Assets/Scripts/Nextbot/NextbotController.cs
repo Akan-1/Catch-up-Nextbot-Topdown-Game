@@ -6,7 +6,7 @@ public class NextbotController : MonoBehaviour
 {
 	[Tooltip("The target is found automatically when game started")]
 	[SerializeField] private Transform _target;
-	
+	[SerializeField] private AudioClip _music;
 	[SerializeField] private int _damage;
 
 	private bool _isFaceRight;
@@ -16,6 +16,8 @@ public class NextbotController : MonoBehaviour
 
 	private NavMeshAgent _agent;
 
+	private AudioSource _audioSource;
+
 	private void Awake()
 	{
 		_target = FindObjectOfType<PlayerController>().transform;
@@ -24,7 +26,14 @@ public class NextbotController : MonoBehaviour
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
 
+		_audioSource = GetComponentInChildren<AudioSource>();
 		//_agent.speed = _movementSpeed;
+	}
+
+	private void Start()
+	{
+		_audioSource.clip = _music;
+		_audioSource.Play();
 	}
 
 	private void Update()
