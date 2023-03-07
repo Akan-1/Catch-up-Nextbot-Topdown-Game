@@ -25,6 +25,7 @@ public class NextbotController : MonoBehaviour
 		_agent = GetComponent<NavMeshAgent>();
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
+		_agent.velocity = Vector3.zero;	
 
 		_audioSource = GetComponentInChildren<AudioSource>();
 		//_agent.speed = _movementSpeed;
