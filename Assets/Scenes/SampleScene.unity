@@ -6103,7 +6103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &488697627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6345,6 +6345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1669536229}
+  _smoothSpeed: 2.5
+  _offset: {x: 2, y: 1, z: -10}
 --- !u!1 &541536536
 GameObject:
   m_ObjectHideFlags: 0
@@ -6714,7 +6716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &851558537
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6887,7 +6889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1272541447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92469,6 +92471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultMovementSpeed: 15
   _runMovementSpeed: 25
+  t: 0
 --- !u!50 &1669536231
 Rigidbody2D:
   serializedVersion: 4
@@ -92737,7 +92740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1831792152
 MonoBehaviour:
   m_ObjectHideFlags: 0

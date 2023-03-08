@@ -1,19 +1,24 @@
-using System.Collections;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    private Camera _camera;
+	[SerializeField] private Transform _target;
+	[SerializeField] private float _smoothSpeed = 0.125f;
+	[SerializeField] private Vector3 _offset;
 
-    [SerializeField] private Transform _target;
+	private void FixedUpdate()
+	{
+		Vector3 desiredPosition = _target.position + _offset;
+		Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, _smoothSpeed * Time.deltaTime);
 
-    private void Awake()
-    { 
-        _camera = GetComponent<Camera>();
-    }
+		transform.position = smoothedPosition;
 
-    private void Update()
-    {
-        _camera.transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
-    }
+		if(_target.position.x < transform.position.x)
+		{
+			_offset.x = -_offset.x;
+		}
+	}
+
+
+
 }
