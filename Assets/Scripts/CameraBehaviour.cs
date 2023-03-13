@@ -6,6 +6,12 @@ public class CameraBehaviour : MonoBehaviour
 	[SerializeField] private float _smoothSpeed = 0.125f;
 	[SerializeField] private Vector3 _offset;
 
+	public Transform Target
+	{
+		get => _target;
+		set => _target = value;
+	}
+
 	private void FixedUpdate()
 	{
 		Vector3 desiredPosition = _target.position + _offset;
@@ -13,10 +19,10 @@ public class CameraBehaviour : MonoBehaviour
 
 		transform.position = smoothedPosition;
 
-		if(_target.position.x < transform.position.x)
-		{
-			_offset.x = -_offset.x;
-		}
+		//if(_target.position.x < transform.position.x)
+		//{
+		//	_offset.x = -_offset.x;
+		//}
 	}
 
 
