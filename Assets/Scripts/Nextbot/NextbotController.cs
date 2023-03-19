@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class NextbotController : MonoBehaviour
 {
 	[Tooltip("The target is found automatically when game started")]
@@ -15,8 +18,9 @@ public class NextbotController : MonoBehaviour
 	private bool _isTargetNearby = false;
 
 	private NavMeshAgent _agent;
-
 	private AudioSource _audioSource;
+	private Rigidbody2D _rb;
+
 
 	private void Awake()
 	{
@@ -25,10 +29,14 @@ public class NextbotController : MonoBehaviour
 		_agent = GetComponent<NavMeshAgent>();
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
-		_agent.velocity = Vector3.zero;	
+		_agent.velocity = Vector3.zero;
 
 		_audioSource = GetComponentInChildren<AudioSource>();
-		//_agent.speed = _movementSpeed;
+
+		_rb = GetComponent<Rigidbody2D>();
+		_rb.gravityScale = 0f;
+		_rb.drag = 50f;
+		_rb.freezeRotation = true;
 	}
 
 	private void Start()
