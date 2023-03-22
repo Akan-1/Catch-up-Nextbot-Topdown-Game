@@ -21,7 +21,6 @@ public class NextbotController : MonoBehaviour
 	private AudioSource _audioSource;
 	private Rigidbody2D _rb;
 
-
 	private void Awake()
 	{
 		_target = FindObjectOfType<PlayerController>().transform;

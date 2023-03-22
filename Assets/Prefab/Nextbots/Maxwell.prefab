@@ -149,9 +149,9 @@ GameObject:
   - component: {fileID: 5659024008560255811}
   - component: {fileID: 5659024008560255809}
   - component: {fileID: 5659024008560255814}
-  - component: {fileID: 5659024008560255808}
   - component: {fileID: 5659024008560255813}
   - component: {fileID: 8532673248470148992}
+  - component: {fileID: 8163887570400114134}
   m_Layer: 0
   m_Name: Maxwell
   m_TagString: Untagged
@@ -264,21 +264,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 6.07
---- !u!114 &5659024008560255808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5659024008560255823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0502a35d3da00f54991984db690726ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _music: {fileID: 8300000, guid: 4619c5cb370f2c1478c794654756fb98, type: 3}
-  _damage: 10
 --- !u!195 &5659024008560255813
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -327,3 +312,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.14, y: 9.31}
   m_EdgeRadius: 0
+--- !u!114 &8163887570400114134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659024008560255823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0502a35d3da00f54991984db690726ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _music: {fileID: 8300000, guid: 4619c5cb370f2c1478c794654756fb98, type: 3}
+  _damage: 10
