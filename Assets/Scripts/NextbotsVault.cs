@@ -40,7 +40,7 @@ public class NextbotsVault : MonoBehaviour
 			{
 				Destroy(lastNextbot.gameObject);
 			}
-			_nextbotList.RemoveAt(_nextbotList.Count - 1);
+			_nextbotList.RemoveAt(_nextbotList.Count - 1); 
 		}
 	}
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 45148192639348790}
   - component: {fileID: 45148192639348785}
   - component: {fileID: 45148192639348784}
+  - component: {fileID: -7672088301770806728}
   m_Layer: 0
   m_Name: Selene
   m_TagString: Untagged
@@ -157,6 +158,21 @@ NavMeshAgent:
   m_BaseOffset: 2.0999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7672088301770806728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45148192639348786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0502a35d3da00f54991984db690726ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _music: {fileID: 8300000, guid: 325e49c8b199577479f4223664d7c587, type: 3}
+  _damage: 10
 --- !u!1 &45148193629771066
 GameObject:
   m_ObjectHideFlags: 0

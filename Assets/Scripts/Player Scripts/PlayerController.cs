@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerController : MonoBehaviour
 
 	private Vector2 _direction;
     private Rigidbody2D rb;
+
+    [SerializeField] private UnityEvent _on;
+
 
 	private void Awake()
     {
@@ -21,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	{
         LookAtMouse();
         Sprint();
-
+        CheckPressButton();
     }
 
 	private void FixedUpdate()
@@ -36,6 +40,14 @@ public class PlayerController : MonoBehaviour
 
         rb.MovePosition(rb.position + _direction * _currentMovementSpeed * Time.fixedDeltaTime);
     }
+
+    private void CheckPressButton()
+	{
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+            _on.Invoke();
+		}
+	}
 
     private void Sprint()
 	{

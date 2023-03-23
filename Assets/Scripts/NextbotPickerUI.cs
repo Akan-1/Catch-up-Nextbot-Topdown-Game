@@ -35,12 +35,6 @@ public class NextbotPickerUI : MonoBehaviour
 		GameObject nextbotObject = Instantiate(_nextbotController.gameObject, _spawnPoint.position, Quaternion.identity);
 		NextbotController nextbotController = nextbotObject.GetComponent<NextbotController>();
 
-		NextbotsVault nextbotsVault = FindObjectOfType<NextbotsVault>();
-
-		if (nextbotsVault != null)
-		{
-			nextbotsVault.AddNextbotToList(nextbotController);
-			_onNextbotSpawn?.Invoke(nextbotController);
-		}
+		_onNextbotSpawn?.Invoke(nextbotController);
 	}
 }
