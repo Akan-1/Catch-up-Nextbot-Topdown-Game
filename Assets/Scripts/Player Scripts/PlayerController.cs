@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
 	private Vector2 _direction;
     private Rigidbody2D rb;
 
-    [SerializeField] private UnityEvent _on;
+    [SerializeField] private UnityEvent _onEnableEvent;
+    [SerializeField] private UnityEvent _onDisableEvent;
+
+    private bool _didEventActivatedBefore = true;
 
 
-	private void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -45,8 +48,18 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
-            _on.Invoke();
-		}
+            _didEventActivatedBefore = !_didEventActivatedBefore;
+
+			if (_didEventActivatedBefore)
+			{
+                _onEnableEvent.Invoke();
+			}
+			else
+			{
+                _onDisableEvent.Invoke();
+			}
+
+        }
 	}
 
     private void Sprint()
