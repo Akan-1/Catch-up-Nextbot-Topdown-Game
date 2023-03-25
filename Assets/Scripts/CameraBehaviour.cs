@@ -6,6 +6,11 @@ public class CameraBehaviour : MonoBehaviour
 	[SerializeField] private float _smoothSpeed = 0.125f;
 	[SerializeField] private Vector3 _offset;
 
+	public Vector2 maxValues;
+	public Vector2 minValues;
+
+	Bounds per;
+
 	public Transform Target
 	{
 		get => _target;
@@ -14,17 +19,23 @@ public class CameraBehaviour : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		Vector3 desiredPosition = _target.position + _offset;
+		Vector3 desiredPosition = Target.position + _offset;
+
 		Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, _smoothSpeed * Time.deltaTime);
-
 		transform.position = smoothedPosition;
-
-		//if(_target.position.x < transform.position.x)
-		//{
-		//	_offset.x = -_offset.x;
-		//}
 	}
 
+	//private void OnDrawGizmosSelected()
+	//{
+	//	// Draw vertical borders
+	//	Gizmos.color = Color.red;
+	//	Gizmos.DrawLine(new Vector3(minX.x, minY.x, 0f), new Vector3(minX.x, minY.y, 0f));
+	//	Gizmos.DrawLine(new Vector3(minX.y, minY.x, 0f), new Vector3(minX.y, minY.y, 0f));
 
+	//	// Draw horizontal borders
+	//	Gizmos.color = Color.blue;
+	//	Gizmos.DrawLine(new Vector3(minX.x, minY.x, 0f), new Vector3(minX.y, minY.x, 0f));
+	//	Gizmos.DrawLine(new Vector3(minX.x, minY.y, 0f), new Vector3(minX.y, minY.y, 0f));
+	//}
 
 }

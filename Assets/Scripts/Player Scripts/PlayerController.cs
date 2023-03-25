@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 	private Vector2 _direction;
     private Rigidbody2D rb;
 
+    [Header("Tab ")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
 
@@ -20,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
         _currentMovementSpeed = _defaultMovementSpeed;
     }
 
