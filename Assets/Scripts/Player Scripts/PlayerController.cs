@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 	private Vector2 _direction;
     private Rigidbody2D rb;
 
-    [Header("Tab ")]
+    [Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
 

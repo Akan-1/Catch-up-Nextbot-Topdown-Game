@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(NavMeshAgent))]
@@ -30,7 +31,14 @@ public class NextbotController : MonoBehaviour
 		_agent.updateUpAxis = false;
 		_agent.velocity = Vector3.zero;
 
-		_audioSource = GetComponentInChildren<AudioSource>();
+		_audioSource = GetComponent<AudioSource>();
+		_audioSource.loop = true;
+		_audioSource.spread = 360f;
+		_audioSource.dopplerLevel = 0;
+		_audioSource.rolloffMode = AudioRolloffMode.Linear;
+		_audioSource.maxDistance = 75f;
+		_audioSource.spatialBlend = 1f;
+		_audioSource.panStereo = 1f; 
 
 		_rb = GetComponent<Rigidbody2D>();
 		_rb.gravityScale = 0f;
