@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(NavMeshAgent))]
 public class NextbotController : MonoBehaviour
 {
@@ -16,11 +15,10 @@ public class NextbotController : MonoBehaviour
 	private bool _isFaceRight;
 	private bool _isCanAttack = true;
 	private bool _isCooldownEnded = true;
-	private bool _isTargetNearby = false;
+	private bool _isTargetNearby;
 
 	private NavMeshAgent _agent;
 	private AudioSource _audioSource;
-	private Rigidbody2D _rb;
 
 	private void Awake()
 	{
@@ -38,12 +36,7 @@ public class NextbotController : MonoBehaviour
 		_audioSource.rolloffMode = AudioRolloffMode.Linear;
 		_audioSource.maxDistance = 75f;
 		_audioSource.spatialBlend = 1f;
-		_audioSource.panStereo = 1f; 
-
-		_rb = GetComponent<Rigidbody2D>();
-		_rb.gravityScale = 0f;
-		_rb.drag = 50f;
-		_rb.freezeRotation = true;
+		_audioSource.panStereo = 1f;
 	}
 
 	private void Start()
@@ -93,18 +86,18 @@ public class NextbotController : MonoBehaviour
 	#endregion
 
 	#region OnCollision Stuff
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (collision.gameObject.TryGetComponent(out IDamagable damagableObject))
+		if (other.gameObject.TryGetComponent(out IDamagable damagableObject))
 		{
 			_isTargetNearby = true;
 			StartCoroutine(StartTakeDamage(damagableObject));
 		}
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	private void OnTriggerExit2D(Collider2D other)
 	{
-		if (collision.gameObject.TryGetComponent(out IDamagable damagableObject))
+		if (other.gameObject.TryGetComponent(out IDamagable damagableObject))
 		{
 			_isTargetNearby = false;
 			
