@@ -19,15 +19,23 @@ public class NextbotController : MonoBehaviour
 
 	private NavMeshAgent _agent;
 	private AudioSource _audioSource;
+	private CircleCollider2D _circleCollider2D;
 
 	private void Awake()
 	{
 		_target = FindObjectOfType<PlayerController>().transform;
 
+		_circleCollider2D = GetComponent<CircleCollider2D>();
+		_circleCollider2D.isTrigger = true;
+
 		_agent = GetComponent<NavMeshAgent>();
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
 		_agent.velocity = Vector3.zero;
+		_agent.acceleration = 60f;
+		_agent.angularSpeed = 60f;
+		_agent.speed = 30f;
+		_agent.autoBraking = false;
 
 		_audioSource = GetComponent<AudioSource>();
 		_audioSource.loop = true;
@@ -38,7 +46,7 @@ public class NextbotController : MonoBehaviour
 		_audioSource.spatialBlend = 1f;
 		_audioSource.panStereo = 1f;
 	}
-
+	
 	private void Start()
 	{
 		_audioSource.clip = _music;
