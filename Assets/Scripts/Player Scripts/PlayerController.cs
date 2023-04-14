@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player config")]
 	[SerializeField] private float _defaultMovementSpeed;
     [SerializeField] private float _runMovementSpeed;
-    [SerializeField] private float _stamina, _staminaReduction;
+	[SerializeField] private float _stamina, _staminaReduction;
+    [SerializeField] private float _staminaMinimumValue;
     private float _defaultStaminaValue;
 
     private bool _canUseStamina = true;
@@ -25,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image _staminaBar;
 
     private bool _didEventActivatedBefore = true;
-
 
     private void Awake()
     {
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _direction.y = Input.GetAxisRaw("Vertical");
 
         rb.MovePosition(rb.position + _direction * _currentMovementSpeed * Time.fixedDeltaTime);
+
     }
 
     private void CheckPressButton()
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private void Sprint()
     {
-	    if (Input.GetKey(KeyCode.LeftShift) && _stamina > 0f && _canUseStamina)
+	    if (Input.GetKey(KeyCode.LeftShift) && _stamina > 0f && _canUseStamina && (_direction.x != 0 || _direction.y != 0))
 		{
 			_staminaBar.gameObject.SetActive(true);
 			_currentMovementSpeed = _runMovementSpeed;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
             {
 	            _stamina += _staminaReduction;
 	            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
-	            _canUseStamina = _stamina >= 1f;
+	            _canUseStamina = _stamina >= _staminaMinimumValue;
             }
             else
             {
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
             }
 		}
 
-	    _staminaBar.color = _stamina >= 1f ? Color.cyan : Color.red;
+	    _staminaBar.color = _stamina >= _staminaMinimumValue ? Color.cyan : Color.red;
     }
 
     private void LookAtMouse()

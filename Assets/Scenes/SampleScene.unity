@@ -27556,7 +27556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &864447507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -120565,12 +120565,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8060759350618819488, guid: 9b105df226323e048ba03aabe043f200, type: 3}
       propertyPath: _stamina
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8060759350618819488, guid: 9b105df226323e048ba03aabe043f200, type: 3}
       propertyPath: _staminaBar
       value: 
       objectReference: {fileID: 250561300}
+    - target: {fileID: 8060759350618819488, guid: 9b105df226323e048ba03aabe043f200, type: 3}
+      propertyPath: _staminaMinimumValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8060759350618819488, guid: 9b105df226323e048ba03aabe043f200, type: 3}
       propertyPath: _onEnableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
