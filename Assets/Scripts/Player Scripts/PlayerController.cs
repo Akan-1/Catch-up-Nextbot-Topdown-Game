@@ -1,19 +1,28 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Player config")]
 	[SerializeField] private float _defaultMovementSpeed;
     [SerializeField] private float _runMovementSpeed;
-    private float _currentMovementSpeed;
+    [SerializeField] private float _stamina, _staminaReduction;
+    private float _defaultStaminaValue;
 
-	private Vector2 _direction;
+    private bool _canUseStamina = true;
+    private float _currentMovementSpeed;
+    private Vector2 _direction;
     private Rigidbody2D rb;
 
     [Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
+    private bool _canUsePicker;
+    public void CanUserPicker(bool value) => _canUsePicker = value;
+
+    [Header("UI")] 
+    [SerializeField] private Image _staminaBar;
 
     private bool _didEventActivatedBefore = true;
 
@@ -22,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _currentMovementSpeed = _defaultMovementSpeed;
+        _defaultStaminaValue = _stamina;
     }
 
 	private void Update()
@@ -46,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckPressButton()
 	{
-		if (Input.GetKeyDown(KeyCode.Tab))
+		if (Input.GetKeyDown(KeyCode.Tab) && _canUsePicker)
 		{
             _didEventActivatedBefore = !_didEventActivatedBefore;
 
@@ -63,16 +73,31 @@ public class PlayerController : MonoBehaviour
 	}
 
     private void Sprint()
-	{
-		if (Input.GetKey(KeyCode.LeftShift))
+    {
+	    if (Input.GetKey(KeyCode.LeftShift) && _stamina > 0f && _canUseStamina)
 		{
-            _currentMovementSpeed = _runMovementSpeed;
+			_staminaBar.gameObject.SetActive(true);
+			_currentMovementSpeed = _runMovementSpeed;
+            _stamina -= _staminaReduction;
+            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
 		}
         else
 		{
-            _currentMovementSpeed = _defaultMovementSpeed;
+			_currentMovementSpeed = _defaultMovementSpeed;
+            if (_stamina < _defaultStaminaValue)
+            {
+	            _stamina += _staminaReduction;
+	            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
+	            _canUseStamina = _stamina >= 1f;
+            }
+            else
+            {
+	            _staminaBar.gameObject.SetActive(false);
+            }
 		}
-	}
+
+	    _staminaBar.color = _stamina >= 1f ? Color.cyan : Color.red;
+    }
 
     private void LookAtMouse()
     {
