@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _runMovementSpeed;
     [SerializeField] private float _stamina, _staminaReduction;
     private float _defaultStaminaValue;
+
+    private bool _canUseStamina = true;
     private float _currentMovementSpeed;
     private Vector2 _direction;
     private Rigidbody2D rb;
@@ -71,8 +73,8 @@ public class PlayerController : MonoBehaviour
 	}
 
     private void Sprint()
-	{
-		if (Input.GetKey(KeyCode.LeftShift) && _stamina > 0f)
+    {
+	    if (Input.GetKey(KeyCode.LeftShift) && _stamina > 0f && _canUseStamina)
 		{
 			_staminaBar.gameObject.SetActive(true);
 			_currentMovementSpeed = _runMovementSpeed;
@@ -81,18 +83,21 @@ public class PlayerController : MonoBehaviour
 		}
         else
 		{
-            _currentMovementSpeed = _defaultMovementSpeed;
+			_currentMovementSpeed = _defaultMovementSpeed;
             if (_stamina < _defaultStaminaValue)
             {
 	            _stamina += _staminaReduction;
 	            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
+	            _canUseStamina = _stamina >= 1f;
             }
             else
             {
 	            _staminaBar.gameObject.SetActive(false);
             }
 		}
-	}
+
+	    _staminaBar.color = _stamina >= 1f ? Color.cyan : Color.red;
+    }
 
     private void LookAtMouse()
     {
