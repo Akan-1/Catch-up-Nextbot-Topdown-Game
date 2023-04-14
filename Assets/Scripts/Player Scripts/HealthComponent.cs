@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthComponent : MonoBehaviour, IDamagable
 {
@@ -18,6 +19,8 @@ public class HealthComponent : MonoBehaviour, IDamagable
 		set => _criticalHealthAmount = value;
 	}
 
+	public UnityEvent OnDie;
+
 	public void TakeDamage(int damage, bool isCanAttack)
 	{
 		if (isCanAttack)
@@ -28,7 +31,7 @@ public class HealthComponent : MonoBehaviour, IDamagable
 		if (_defaultHealthAmount <= 0)
 		{
 			_defaultHealthAmount = 0;
-			//TODO add event
+			OnDie?.Invoke();
 		}
 	}
 }
