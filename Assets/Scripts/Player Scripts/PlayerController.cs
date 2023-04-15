@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("UI")] 
     [SerializeField] private Image _staminaBar;
 
-    private bool _didEventActivatedBefore = true;
+    private bool _didEventActivatedBefore;
 
     private void Awake()
     {
