@@ -115,3 +115,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delete: 0
+  _changeItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4816250445067445624}
+        m_TargetAssemblyTypeName: TaskItem, Assembly-CSharp
+        m_MethodName: LevelArm
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1121918781490610706, guid: 24a1f9f900e66045b88ec6cfe3a91e28, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
