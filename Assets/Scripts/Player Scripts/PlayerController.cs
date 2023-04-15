@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
-    private bool _canUsePicker;
+    private bool _canUsePicker = true;
     public void CanUserPicker(bool value) => _canUsePicker = value;
 
     [Header("UI")] 

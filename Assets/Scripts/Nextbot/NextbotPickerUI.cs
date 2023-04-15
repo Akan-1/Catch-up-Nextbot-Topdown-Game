@@ -26,6 +26,7 @@ public class NextbotPickerUI : MonoBehaviour
 
 		GetComponent<Image>().sprite = nextbotController.GetComponent<SpriteRenderer>().sprite;
 	}
+	
 
 	public void AddNextbotToMap()
 	{

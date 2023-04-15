@@ -22,7 +22,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private List<TaskItemGenerate> _taskGameObjects;
 
     [Header("UI")]
-    [SerializeField] private List<string> _textList; // Пример: Собери,Ключей
+    [SerializeField] private List<string> _textList; // Пример: Собери,ключей
     [SerializeField] private TMP_Text _taskText;
     [SerializeField] private List<Sprite> _iconList;
     [SerializeField] private Image _icon;
@@ -32,10 +32,9 @@ public class TaskManager : MonoBehaviour
     private void Start()
     {
         _onFinish += FindObjectOfType<LevelManager>().Win;
-        SetTask();
     }
 
-    private void SetTask()
+    public void SetTask()
     {
         _count = UnityRandom.Range(4, _maxCount);
         Array values = Enum.GetValues(typeof(Tasks));
