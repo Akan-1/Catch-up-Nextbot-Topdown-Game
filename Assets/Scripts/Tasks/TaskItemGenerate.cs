@@ -18,5 +18,4 @@ public class TaskItemGenerate : MonoBehaviour
             _points.RemoveAt(randomPoint);
         }
     }
-
 }
