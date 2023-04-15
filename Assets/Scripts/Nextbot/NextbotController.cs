@@ -42,7 +42,7 @@ public class NextbotController : MonoBehaviour
 		_audioSource.spread = 360f;
 		_audioSource.dopplerLevel = 0;
 		_audioSource.rolloffMode = AudioRolloffMode.Linear;
-		_audioSource.maxDistance = 75f;
+		_audioSource.maxDistance = 35f;
 		_audioSource.spatialBlend = 1f;
 		_audioSource.panStereo = 1f;
 	}
