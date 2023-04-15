@@ -5,7 +5,7 @@ public class PauseMenuBehaviour : MonoBehaviour
 {
 	#region Fields
 
-	private bool GameOnPaused = false;
+	public bool GameOnPaused = false;
 	[SerializeField] private GameObject PauseUI;
 
 	#endregion
@@ -17,13 +17,13 @@ public class PauseMenuBehaviour : MonoBehaviour
 	{
 		GameOnPaused = false;
 		Time.timeScale = 1f;
-		PauseUI.SetActive(false);
+		PauseUI.SetActive(GameOnPaused);
 	}
 	private void Pause()
 	{
 		GameOnPaused = true;
 		Time.timeScale = 0f;
-		PauseUI.SetActive(true);	
+		PauseUI.SetActive(GameOnPaused);	
 	}
 	public void Restart()
 	{

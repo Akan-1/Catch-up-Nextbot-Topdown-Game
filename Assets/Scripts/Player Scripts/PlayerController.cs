@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float _currentMovementSpeed;
     private Vector2 _direction;
     private Rigidbody2D rb;
+    private PauseMenuBehaviour _pause;
 
     [Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        _pause = FindObjectOfType<PauseMenuBehaviour>();
         _currentMovementSpeed = _defaultMovementSpeed;
         _defaultStaminaValue = _stamina;
     }
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour
         else
 		{
 			_currentMovementSpeed = _defaultMovementSpeed;
-            if (_stamina < _defaultStaminaValue)
+            if (_stamina < _defaultStaminaValue && _pause.GameOnPaused == false)
             {
 	            _stamina += _staminaReduction;
 	            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
