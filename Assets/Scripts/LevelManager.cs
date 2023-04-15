@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
         _levelText.text = $"Level {_level}";
     }
 
-    public void MoveToNextLevel()
+    public void Win()
     {
         _level++;
         PlayerPrefs.SetInt("Level", _level);
@@ -23,9 +23,9 @@ public class LevelManager : MonoBehaviour
 
     public void Lose()
     {
-        PlayerPrefs.SetInt("HighLevel", _level);
+        if(PlayerPrefs.GetInt("HighLevel") < _level)
+            PlayerPrefs.SetInt("HighLevel", _level);
         PlayerPrefs.SetInt("Level", 1);
-
         _buttons.LoadScene(0);
     }
 }

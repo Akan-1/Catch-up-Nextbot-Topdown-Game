@@ -32,7 +32,7 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        _onFinish += FindObjectOfType<LevelManager>().MoveToNextLevel;
+        _onFinish += FindObjectOfType<LevelManager>().Win;
         SetTask();
     }
 
@@ -58,8 +58,6 @@ public class TaskManager : MonoBehaviour
         string[] text = _textList[_taskID].Split(",");
         _taskText.text = $"{text[0]} {_count} {text[1]}";
     }
-
-
 
     public void Use()
     {
