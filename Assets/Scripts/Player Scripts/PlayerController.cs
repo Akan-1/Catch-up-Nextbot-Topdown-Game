@@ -87,9 +87,10 @@ public class PlayerController : MonoBehaviour
         else
 		{
 			_currentMovementSpeed = _defaultMovementSpeed;
-            if (_stamina < _defaultStaminaValue && _pause.GameOnPaused == false)
+            if (_stamina < _defaultStaminaValue)
             {
-	            _stamina += _staminaReduction;
+	            if(_pause.GameOnPaused == false)
+					_stamina += _staminaReduction;
 	            _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
 	            _canUseStamina = _stamina >= _staminaMinimumValue;
             }
