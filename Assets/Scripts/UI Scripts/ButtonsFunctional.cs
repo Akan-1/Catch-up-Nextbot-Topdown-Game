@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +8,6 @@ public class ButtonsFunctional : MonoBehaviour
 {
 	[SerializeField] private GameObject _asyncLoadPanel;
 	[SerializeField] private Image _asyncLoadBar;
-	[SerializeField] private TMP_Text _anyKeyText;
 	
 	public void LoadScene(int sceneIndex)
 	{
@@ -24,23 +22,14 @@ public class ButtonsFunctional : MonoBehaviour
 	private IEnumerator AsyncLoadSceneCoroutine(int sceneIndex)
 	{
 		AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-		operation.allowSceneActivation = false;
 		_asyncLoadPanel.SetActive(true);
 		
 		while (!operation.isDone)
 		{
-			_asyncLoadBar.fillAmount = operation.progress / 1;
-			if (operation.progress >= .9f)
-			{
-				_asyncLoadBar.fillAmount = 1;
-				_anyKeyText.gameObject.SetActive(true);
-				break;
-			}
+			float progress = operation.progress;
+			_asyncLoadBar.fillAmount = progress / 1;
 			yield return null;
 		}
-
-		yield return new WaitUntil(() => Input.anyKeyDown);
-		operation.allowSceneActivation = true;
 	}
 
 	
