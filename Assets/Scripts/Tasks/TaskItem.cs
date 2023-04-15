@@ -1,15 +1,24 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class TaskItem : MonoBehaviour
 {
-    public UnityEvent onUse;
+    public event Action _onUse;
     [SerializeField] private bool _delete;
+    private bool _canUse = true;
+
+    private void Start()
+    {
+        _onUse += FindObjectOfType<TaskManager>().Use;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.TryGetComponent(out PlayerController _)) return;
-        onUse?.Invoke();
-        gameObject.SetActive(!_delete);
+        if (other.TryGetComponent(out PlayerController _) && _canUse)
+        {
+            _onUse?.Invoke();
+            gameObject.SetActive(!_delete);
+            _canUse = false;
+        }
     }
 }
