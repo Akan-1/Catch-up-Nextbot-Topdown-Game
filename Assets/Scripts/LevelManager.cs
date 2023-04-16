@@ -12,13 +12,15 @@ public class LevelManager : MonoBehaviour
     {
         _level = PlayerPrefs.GetInt("Level", 1);
         _levelText.text = $"Level {_level}";
+        Time.timeScale = 1;
     }
 
     public void Win()
     {
         _level++;
         PlayerPrefs.SetInt("Level", _level);
-        _winPanel.SetActive(true);  
+        _winPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Lose()
@@ -27,5 +29,6 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("HighLevel", _level);
         PlayerPrefs.SetInt("Level", 1);
         _losePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 }
