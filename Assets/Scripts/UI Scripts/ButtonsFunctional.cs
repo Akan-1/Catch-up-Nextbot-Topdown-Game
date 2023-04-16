@@ -20,6 +20,11 @@ public class ButtonsFunctional : MonoBehaviour
 	{
 		StartCoroutine(AsyncLoadSceneCoroutine(sceneIndex));
 	}
+	
+	public void AsyncRandomLoadScene()
+	{
+		StartCoroutine(AsyncLoadSceneCoroutine(Random.Range(1, SceneManager.sceneCountInBuildSettings)));
+	}
 
 	private IEnumerator AsyncLoadSceneCoroutine(int sceneIndex)
 	{
@@ -34,13 +39,13 @@ public class ButtonsFunctional : MonoBehaviour
 			{
 				_asyncLoadBar.fillAmount = 1;
 				_anyKeyText.gameObject.SetActive(true);
+				operation.allowSceneActivation = true;
 				break;
 			}
 			yield return null;
 		}
 
 		yield return new WaitUntil(() => Input.anyKeyDown);
-		operation.allowSceneActivation = true;
 	}
 
 	

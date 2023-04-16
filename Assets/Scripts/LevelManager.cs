@@ -1,12 +1,12 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int _level;
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private ButtonsFunctional _buttons;
+    [SerializeField] private GameObject _winPanel, _losePanel;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     {
         _level++;
         PlayerPrefs.SetInt("Level", _level);
-        _buttons.AsyncLoadScene(Random.Range(1, SceneManager.sceneCountInBuildSettings));
+        _winPanel.SetActive(true);  
     }
 
     public void Lose()
@@ -26,6 +26,6 @@ public class LevelManager : MonoBehaviour
         if(PlayerPrefs.GetInt("HighLevel") < _level)
             PlayerPrefs.SetInt("HighLevel", _level);
         PlayerPrefs.SetInt("Level", 1);
-        _buttons.LoadScene(0);
+        _losePanel.SetActive(true);
     }
 }
