@@ -4,11 +4,29 @@ using UnityEngine;
 
 public class NextbotRandomSpawn : MonoBehaviour
 {
-    private void Start()
+	List<Transform> _spawnPointsList;
+
+	private void Start()
     {
         List<NextbotController> nextbotsList = Resources.LoadAll<NextbotController>("Nextbots").ToList();
 
-        Instantiate(nextbotsList[Random.Range(0, nextbotsList.Count)],
-            GameObject.FindGameObjectWithTag("Spawnpoint").transform.position, Quaternion.identity);
-    }
+		GameObject spawnpointsObj = GameObject.Find("Spawnpoints");
+		Transform[] spawnPoints = spawnpointsObj.GetComponentsInChildren<Transform>();
+
+		_spawnPointsList = new List<Transform>(); 
+
+		foreach (Transform spawnPoint in spawnPoints)
+		{
+			if (spawnPoint != spawnpointsObj.transform)
+			{
+				_spawnPointsList.Add(spawnPoint);
+			}
+		}
+
+		int spawnPointIndex = Random.Range(1, _spawnPointsList.Count - 1);
+		Transform spawnPointsPos = _spawnPointsList[spawnPointIndex];
+
+		Instantiate(nextbotsList[Random.Range(0, nextbotsList.Count)],
+			spawnPointsPos.position, Quaternion.identity);
+	}
 }

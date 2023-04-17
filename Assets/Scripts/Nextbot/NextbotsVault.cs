@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +8,12 @@ public class NextbotsVault : MonoBehaviour
 
 	private void OnEnable()
 	{
-		NextbotPickerUI._onNextbotSpawn += AddNextbotToList;
+		NextbotPickerUI.onNextbotSpawn += AddNextbotToList;
 	}
 
 	private void OnDisable()
 	{
-		NextbotPickerUI._onNextbotSpawn -= AddNextbotToList;
+		NextbotPickerUI.onNextbotSpawn -= AddNextbotToList;
 	}
 
 	public void AddNextbotToList(NextbotController nextbot)
@@ -43,6 +42,4 @@ public class NextbotsVault : MonoBehaviour
 			_nextbotList.RemoveAt(_nextbotList.Count - 1); 
 		}
 	}
-
-
 }

@@ -4,23 +4,28 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player config")]
+	#region Player Config
+	[Header("Player config")]
 	[SerializeField] private float _defaultMovementSpeed;
     [SerializeField] private float _runMovementSpeed;
 	[SerializeField] private float _stamina, _staminaReduction;
     [SerializeField] private float _staminaMinimumValue;
     private float _defaultStaminaValue;
+	#endregion
 
-    private bool _canUseStamina = true;
+	#region Private Fields
+	private bool _canUseStamina = true;
     private float _currentMovementSpeed;
     private Vector2 _direction;
     private Rigidbody2D rb;
     private PauseMenuBehaviour _pause;
+	#endregion
 
-    [Header("Tab Button Config")]
+	[Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
     private bool _canUsePicker = true;
+
     public void CanUserPicker(bool value) => _canUsePicker = value;
 
     [Header("UI")] 
@@ -43,12 +48,13 @@ public class PlayerController : MonoBehaviour
         CheckPressButton();
     }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
     {
         Walk();
     }
 
-    private void Walk()
+	#region Player Methods
+	private void Walk()
 	{
         _direction.x = Input.GetAxisRaw("Horizontal");
         _direction.y = Input.GetAxisRaw("Vertical");
@@ -71,7 +77,6 @@ public class PlayerController : MonoBehaviour
 			{
                 _onDisableEvent.Invoke();
 			}
-
         }
 	}
 
@@ -103,9 +108,10 @@ public class PlayerController : MonoBehaviour
 	    _staminaBar.color = _stamina >= _staminaMinimumValue ? Color.cyan : Color.red;
     }
 
-    private void LookAtMouse()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.up = (mousePos - new Vector2(transform.position.x, transform.position.y));
-    }
+	private void LookAtMouse()
+	{
+		Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		transform.up = (mousePos - new Vector2(transform.position.x, transform.position.y));
+	}
+	#endregion
 }
