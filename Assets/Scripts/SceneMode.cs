@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,10 +5,13 @@ public class SceneMode : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onSurvive;
     [SerializeField] private UnityEvent _onSandbox;
+    [SerializeField] private Modes _defaultMode = Modes.Sandbox;
 
     private void Start()
     {
-        Modes mode = ModesSelector.singleton.GetMod();
+        Modes mode = _defaultMode;
+        if(ModesSelector.singleton != null)
+           mode = ModesSelector.singleton.GetMod();
 
         switch (mode)
         {
