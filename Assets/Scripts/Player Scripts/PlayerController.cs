@@ -8,9 +8,19 @@ public class PlayerController : MonoBehaviour
 	[Header("Player config")]
 	[SerializeField] private float _defaultMovementSpeed;
     [SerializeField] private float _runMovementSpeed;
-	[SerializeField] private float _stamina, _staminaReduction;
+    [Header("Sprint")]
+    [SerializeField] private float _stamina;
+    [SerializeField] private float _staminaReduction;
     [SerializeField] private float _staminaMinimumValue;
+    [Space]
+	[SerializeField] private float _cameraSizeIncreaseRate = 1f;
+    [SerializeField] private float _cameraSizeDecreaseRate = 1f;
+    [SerializeField] private float _maxCameraSize = 18.0f;
+
+    private float _originalCameraSize; // Original size of the camera
     private float _defaultStaminaValue;
+
+    private Camera _camera;
 	#endregion
 
 	#region Private Fields
@@ -39,6 +49,8 @@ public class PlayerController : MonoBehaviour
         _pause = FindObjectOfType<PauseMenuBehaviour>();
         _currentMovementSpeed = _defaultMovementSpeed;
         _defaultStaminaValue = _stamina;
+        _originalCameraSize = Camera.main.orthographicSize;
+        _camera = Camera.main;
     }
 
 	private void Update()
@@ -88,7 +100,13 @@ public class PlayerController : MonoBehaviour
 			_currentMovementSpeed = _runMovementSpeed;
             _stamina -= _staminaReduction;
             _staminaBar.fillAmount = _stamina / _defaultStaminaValue;
-		}
+
+            if (_camera.orthographicSize < _maxCameraSize)
+            {
+                _camera.orthographicSize += _cameraSizeIncreaseRate * Time.deltaTime;
+                _camera.GetComponent<CameraBehaviour>().SetCameraBounds();
+            }
+        }
         else
 		{
 			_currentMovementSpeed = _defaultMovementSpeed;
@@ -103,7 +121,10 @@ public class PlayerController : MonoBehaviour
             {
 	            _staminaBar.gameObject.SetActive(false);
             }
-		}
+            _camera.orthographicSize -= _cameraSizeDecreaseRate * Time.deltaTime;
+            _camera.orthographicSize = Mathf.Max(_camera.orthographicSize, _originalCameraSize);
+            _camera.GetComponent<CameraBehaviour>().SetCameraBounds();
+        }
 
 	    _staminaBar.color = _stamina >= _staminaMinimumValue ? Color.cyan : Color.red;
     }
