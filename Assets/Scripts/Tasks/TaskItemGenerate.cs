@@ -14,7 +14,7 @@ public class TaskItemGenerate : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             int randomPoint = Random.Range(0, _points.Count);
-            Instantiate(_item, _points[randomPoint].position, Quaternion.identity);
+            Instantiate(_item, _points[randomPoint].position, _points[randomPoint].localRotation);
             _points.RemoveAt(randomPoint);
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = System.Random;
 using UnityRandom = UnityEngine.Random;
@@ -27,12 +28,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private List<Sprite> _iconList;
     [SerializeField] private Image _icon;
 
-    private event Action _onFinish;
-
-    private void Start()
-    {
-        _onFinish += FindObjectOfType<LevelManager>().Win;
-    }
+    [SerializeField] private List<UnityEvent> _onFinish;
 
     public void SetTask()
     {
@@ -63,7 +59,7 @@ public class TaskManager : MonoBehaviour
         ChangeUI();
         if (_count == 0)
         {
-            _onFinish?.Invoke();
+            _onFinish[_taskID]?.Invoke();
         }
     }
 }
