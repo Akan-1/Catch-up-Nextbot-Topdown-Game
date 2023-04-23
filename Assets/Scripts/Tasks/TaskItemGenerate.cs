@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TaskItemGenerate : MonoBehaviour
 {
-    [SerializeField] private TaskItem _item;
+    [SerializeField] private GameObject _item;
+    [SerializeField] private bool _useRandomRotate;
     private List<Transform> _points;
 
     public void Generate(int count)
@@ -14,7 +15,8 @@ public class TaskItemGenerate : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             int randomPoint = Random.Range(0, _points.Count);
-            Instantiate(_item, _points[randomPoint].position, _points[randomPoint].localRotation);
+            Instantiate(_item, _points[randomPoint].position, 
+                _useRandomRotate ? Quaternion.Euler(0, 0, Random.Range(0, 359)) : _points[randomPoint].localRotation);
             _points.RemoveAt(randomPoint);
         }
     }
