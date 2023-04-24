@@ -21,6 +21,7 @@ public class TaskManager : MonoBehaviour
     private Tasks _task;
 
     [SerializeField] private List<TaskItemGenerate> _taskGameObjects;
+    [SerializeField] private List<TaskItemGenerate> _obligatoryObjects;
 
     [Header("UI")]
     [SerializeField] private List<string> _textList; // Пример: Собери,ключей
@@ -47,7 +48,16 @@ public class TaskManager : MonoBehaviour
         _taskGameObjects[_taskID].Generate(_count);
     }
 
-    private void ChangeUI()
+	public void SpawnObligatoryObjects()
+	{
+        var count = UnityRandom.Range(4, _maxCount);
+		for (int i = 0; i <= _obligatoryObjects.Count; i++)
+		{
+			_obligatoryObjects[i].Generate(count);
+		}
+	}
+
+	private void ChangeUI()
     {
         string[] text = _textList[_taskID].Split(",");
         _taskText.text = $"{text[0]} {_count} {text[1]}";

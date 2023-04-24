@@ -24,9 +24,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D rb;
     private PauseMenuBehaviour _pause;
-	#endregion
+    #endregion
 
-	[Header("Tab Button Config")]
+    [Header("Attack")]
+    [SerializeField] private float _defaultAttackDelay = 0.3f;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private float _radius;
+    [SerializeField] private Transform _attackPos;
+    [SerializeField] private LayerMask _interactableObjectMask;
+    private float _attackDelay;
+    
+    [Header("Tab Button Config")]
     [SerializeField] private UnityEvent _onEnableEvent;
     [SerializeField] private UnityEvent _onDisableEvent;
     private bool _canUsePicker = true;
@@ -52,6 +60,7 @@ public class PlayerController : MonoBehaviour
         LookAtMouse();
         Sprint();
         CheckPressButton();
+        Attack();
     }
 
     private void FixedUpdate()
@@ -121,5 +130,34 @@ public class PlayerController : MonoBehaviour
 		Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.up = (mousePos - new Vector2(transform.position.x, transform.position.y));
 	}
-	#endregion
+
+    private void Attack()
+	{
+        if (_defaultAttackDelay <= 0)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Collider2D[] hitObj = Physics2D.OverlapCircleAll(_attackPos.position, _radius, _interactableObjectMask);
+
+                foreach(Collider2D obj in hitObj)
+				{
+                    obj.gameObject.GetComponent<HealthComponent>().TakeDamage(_attackDamage);
+				}
+
+                _defaultAttackDelay = _attackDelay;
+            }
+        }
+		else
+		{
+            _defaultAttackDelay -= Time.deltaTime;
+		}
+	}
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_attackPos.position, _radius);
+    }
+
+    #endregion
 }

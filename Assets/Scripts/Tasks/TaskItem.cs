@@ -24,9 +24,4 @@ public class TaskItem : MonoBehaviour
             _canUse = false;
         }
     }
-
-    public void LevelArm(GameObject light)
-    {
-        Instantiate(light, transform);
-    }
 }

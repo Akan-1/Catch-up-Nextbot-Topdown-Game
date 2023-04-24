@@ -27,14 +27,6 @@ public class CameraBehaviour : MonoBehaviour
 		}
 	}
 
-	private void OnPreCull()
-	{
-		if (_isUsingBounds)
-		{
-			SetCameraBounds();
-		}
-	}
-
 	public void SetCameraBounds()
 	{
 		var height = _main.orthographicSize;

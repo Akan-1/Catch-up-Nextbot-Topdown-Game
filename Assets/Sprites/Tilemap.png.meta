@@ -482,7 +482,7 @@ TextureImporter:
         width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -490,6 +490,27 @@ TextureImporter:
       bones: []
       spriteID: 6c143389a0bec17c2ae77ebedf9c48d6
       internalID: -2118959517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1048
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0597d8cdc12e204392e1760b120cfdd
+      internalID: -1907293913
       vertices: []
       indices: 
       edges: []
@@ -523,6 +544,7 @@ TextureImporter:
       Tilemap_1: 1850056319
       Tilemap_5: 1381310938
       Tilemap_13: 1481046244
+      Tilemap_18: -1907293913
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

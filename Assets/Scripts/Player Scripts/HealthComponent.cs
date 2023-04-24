@@ -21,12 +21,9 @@ public class HealthComponent : MonoBehaviour, IDamagable
 
 	public UnityEvent OnDie;
 
-	public void TakeDamage(int damage, bool isCanAttack)
+	public void TakeDamage(int damage)
 	{
-		if (isCanAttack)
-		{
-			_defaultHealthAmount -= damage;
-		}
+		_defaultHealthAmount -= damage;
 
 		if (_defaultHealthAmount <= 0)
 		{

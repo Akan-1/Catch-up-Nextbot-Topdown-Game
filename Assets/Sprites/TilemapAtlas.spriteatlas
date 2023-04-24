@@ -64,6 +64,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 1900459016, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
   - {fileID: -558716396, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
+  - {fileID: -1907293913, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
   - {fileID: -2045300912, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
   - {fileID: -616999616, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
   - {fileID: -1451883770, guid: 11faaba0459e6364ebdcdd23a3c0a43c, type: 3}
@@ -83,6 +84,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Tilemap_8
   - Tilemap_9
+  - Tilemap_18
   - Tilemap_6
   - Tilemap_7
   - Tilemap_4

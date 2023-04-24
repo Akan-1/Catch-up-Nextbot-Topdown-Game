@@ -76,10 +76,13 @@ public class NextbotController : MonoBehaviour
 	#region Coroutines
 	private IEnumerator StartTakeDamage(IDamagable target)
 	{
-		while (_isTargetNearby)
+		if (_isCanAttack)
 		{
-			target.TakeDamage(_damage, _isCanAttack);
-			yield return new WaitForSeconds(1f);
+			while (_isTargetNearby)
+			{
+				target.TakeDamage(_damage);
+				yield return new WaitForSeconds(1f);
+			}
 		}
 	}
 
