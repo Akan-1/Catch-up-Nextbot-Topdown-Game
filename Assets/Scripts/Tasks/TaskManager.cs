@@ -51,10 +51,7 @@ public class TaskManager : MonoBehaviour
 	public void SpawnObligatoryObjects()
 	{
         var count = UnityRandom.Range(4, _maxCount);
-		for (int i = 0; i <= _obligatoryObjects.Count; i++)
-		{
-			_obligatoryObjects[i].Generate(count);
-		}
+	    _obligatoryObjects[UnityRandom.Range(0, _obligatoryObjects.Count)].Generate(count);
 	}
 
 	private void ChangeUI()
