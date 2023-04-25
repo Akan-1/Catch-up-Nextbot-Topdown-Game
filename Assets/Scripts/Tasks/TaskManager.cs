@@ -16,6 +16,8 @@ public enum Tasks
 public class TaskManager : MonoBehaviour
 {
     [SerializeField, Range(4, 25)] private int _maxCount = 5;
+    [SerializeField, Range(4, 25)] private int _maxCountObligatory = 5;
+
     private int _count;
     private int _taskID;
     private Tasks _task;
@@ -50,7 +52,7 @@ public class TaskManager : MonoBehaviour
 
 	public void SpawnObligatoryObjects()
 	{
-        var count = UnityRandom.Range(4, _maxCount);
+        var count = UnityRandom.Range(2, _maxCountObligatory);
 	    _obligatoryObjects[UnityRandom.Range(0, _obligatoryObjects.Count)].Generate(count);
 	}
 
