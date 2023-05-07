@@ -732,10 +732,10 @@ TextureImporter:
       name: Cars_Road_17
       rect:
         serializedVersion: 2
-        x: 436
-        y: 279
-        width: 46
-        height: 46
+        x: 426
+        y: 310
+        width: 24
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -745,48 +745,6 @@ TextureImporter:
       bones: []
       spriteID: 30cb9da93e8435930800000000000000
       internalID: 4130725425621613571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cars_Road_18
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 286
-        width: 39
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 399c149e768726da0800000000000000
-      internalID: -5953063369740007021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cars_Road_19
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 284
-        width: 39
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0a07e92a050de1f0800000000000000
-      internalID: -1014148799877674486
       vertices: []
       indices: 
       edges: []
@@ -2102,7 +2060,7 @@ TextureImporter:
         width: 33
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2123,7 +2081,7 @@ TextureImporter:
         width: 45
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2144,7 +2102,7 @@ TextureImporter:
         width: 28
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2152,6 +2110,27 @@ TextureImporter:
       bones: []
       spriteID: 647a61508ecb090489e1fec3d58cf4e3
       internalID: 1091742051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cars_Road_85
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 251
+        width: 49
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cb702b97b0a1548ba378ae3e8b797e
+      internalID: -991317031
       vertices: []
       indices: 
       edges: []
@@ -2167,91 +2146,98 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cars_Road_4: 9174909541711712521
-      Cars_Road_47: 642591464978796774
-      Cars_Road_10: -7186740810491977033
-      Cars_Road_62: -2570212196889391506
+      Cars_Road_86: -1039384305
       Cars_Road_2: 6443270357060690453
-      Cars_Road_27: -1595728075626314770
       Cars_Road_51: -4010437117609450695
-      Cars_Road_84: 1091742051
       Cars_Road_57: -4553133655953825271
       Cars_Road_66: -7423530685308810384
-      Cars_Road_1: 1407060943049995264
       Cars_Road_77: -6390752885346247849
       Cars_Road_20: 4467576834988511638
-      Cars_Road_14: 8951935201136635496
-      Cars_Road_18: -5953063369740007021
-      Cars_Road_29: 2915754658831872989
-      Cars_Road_83: 662924678
+      Cars_Road_89: -551280226
       Cars_Road_59: 4610862155472246974
       Cars_Road_34: 97716280929528103
-      Cars_Road_21: -2712512046161668596
       Cars_Road_11: -3128603116770600666
-      Cars_Road_76: 2375009802862028967
       Cars_Road_33: -7141980332288498947
       Cars_Road_55: 3919146213995248184
       Cars_Road_15: -4609647485169194519
       Cars_Road_56: 404594722274867002
-      Cars_Road_64: -3006355412096435541
-      Cars_Road_58: 3075613914893398710
+      Cars_Road_87: -1635630225
+      Cars_Road_71: -3046187222801595515
       Cars_Road_17: 4130725425621613571
       Cars_Road_46: -3407572784752513023
-      Cars_Road_71: -3046187222801595515
       Cars_Road_35: -5348966399376812574
       Cars_Road_7: -753666147477577916
       Cars_Road_24: -98743719570531735
       Cars_Road_63: -3979753179145201167
-      Cars_Road_22: 6312213333817117233
       Cars_Road_28: -2098411033669783975
       Cars_Road_19: -1014148799877674486
-      Cars_Road_79: -5464208728826185773
-      Cars_Road_65: 1526095090589566562
+      Cars_Road_88: -1496048163
       Cars_Road_75: -5667610761127426348
-      Cars_Road_5: 418239882451359703
       Cars_Road_69: -9184938348520806471
-      Cars_Road_3: -3261472442618471423
-      Cars_Road_53: -7902733832472564861
-      Cars_Road_6: -1905692036014899248
-      Cars_Road_8: -6916643639593580730
+      Cars_Road_5: 418239882451359703
       Cars_Road_72: 619570091727101810
       Cars_Road_80: 9006864246760789241
-      Cars_Road_60: 1827024600627916498
+      Cars_Road_91: 1025557648
       Cars_Road_50: 6769309112689053206
-      Cars_Road_44: -5430168148422452772
       Cars_Road_68: 5282693165775087599
       Cars_Road_38: -4392263071879385791
       Cars_Road_43: 4128670328109139543
       Cars_Road_73: 5320494891707654323
-      Cars_Road_82: 1427831755
       Cars_Road_13: 6729346443435397628
       Cars_Road_26: 7808300724536172711
       Cars_Road_32: -6141399967318262509
       Cars_Road_49: 8216300096623931954
+      Cars_Road_48: -5217385543844965043
+      Cars_Road_67: -8765959813023784747
+      Cars_Road_40: -4087498026503489364
+      Cars_Road_85: -991317031
+      Cars_Road_45: -1286077530681083754
+      Cars_Road_78: 3408837781107620860
+      Cars_Road_37: -2991167453311674189
+      Cars_Road_74: -4585260379902128953
+      Cars_Road_0: -2299017560864528331
+      Cars_Road_31: -1373536420562553933
+      Cars_Road_10: -7186740810491977033
+      Cars_Road_81: -6375596603095849374
+      Cars_Road_25: -1475762558785673539
+      Cars_Road_41: -4667233802912013297
+      Cars_Road_23: 7828692708675747120
+      Cars_Road_4: 9174909541711712521
+      Cars_Road_47: 642591464978796774
+      Cars_Road_62: -2570212196889391506
+      Cars_Road_27: -1595728075626314770
+      Cars_Road_84: 1091742051
+      Cars_Road_1: 1407060943049995264
+      Cars_Road_14: 8951935201136635496
+      Cars_Road_18: -5953063369740007021
+      Cars_Road_29: 2915754658831872989
+      Cars_Road_83: 662924678
+      Cars_Road_21: -2712512046161668596
+      Cars_Road_76: 2375009802862028967
+      Cars_Road_64: -3006355412096435541
+      Cars_Road_58: 3075613914893398710
+      Cars_Road_22: 6312213333817117233
+      Cars_Road_79: -5464208728826185773
+      Cars_Road_65: 1526095090589566562
+      Cars_Road_3: -3261472442618471423
+      Cars_Road_53: -7902733832472564861
+      Cars_Road_6: -1905692036014899248
+      Cars_Road_8: -6916643639593580730
+      Cars_Road_60: 1827024600627916498
+      Cars_Road_44: -5430168148422452772
+      Cars_Road_82: 1427831755
+      Cars_Road_90: -163978911
       Cars_Road_54: 1683430821853598728
       Cars_Road_12: -4975990533837380512
       Cars_Road_36: 6088984913875352894
       Cars_Road_42: -5745760127911548965
       Cars_Road_9: 2773800910568125716
-      Cars_Road_40: -4087498026503489364
-      Cars_Road_48: -5217385543844965043
       Cars_Road_39: -2027527993185007817
-      Cars_Road_45: -1286077530681083754
-      Cars_Road_67: -8765959813023784747
-      Cars_Road_78: 3408837781107620860
+      Cars_Road_52: -8938635008189371183
       Cars_Road_61: -7524091171852482774
       Cars_Road_30: 1102450319689308832
-      Cars_Road_37: -2991167453311674189
-      Cars_Road_74: -4585260379902128953
-      Cars_Road_0: -2299017560864528331
-      Cars_Road_31: -1373536420562553933
-      Cars_Road_70: -5486086951485291158
       Cars_Road_16: -2797861160856115289
-      Cars_Road_81: -6375596603095849374
-      Cars_Road_25: -1475762558785673539
-      Cars_Road_52: -8938635008189371183
-      Cars_Road_41: -4667233802912013297
-      Cars_Road_23: 7828692708675747120
+      Cars_Road_70: -5486086951485291158
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
