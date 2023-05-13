@@ -636,7 +636,7 @@ TextureImporter:
         x: 619
         y: 74
         width: 241
-        height: 256
+        height: 257
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,7 +656,7 @@ TextureImporter:
         serializedVersion: 2
         x: 902
         y: 77
-        width: 255
+        width: 256
         height: 241
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -827,7 +827,7 @@ TextureImporter:
         width: 109
         height: 151
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -848,7 +848,7 @@ TextureImporter:
         width: 109
         height: 99
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -869,7 +869,7 @@ TextureImporter:
         width: 109
         height: 99
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -893,7 +893,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Buildings_2: -7011020414044352858
-      Buildings_32: 933288632240285052
+      Buildings_3: -5075879681021990956
       Buildings_14: -1578805528120144468
       Buildings_13: -1616879993858795356
       Buildings_0: -8078966772632430244
@@ -924,7 +924,7 @@ TextureImporter:
       Buildings_15: 3178892129885836689
       Buildings_17: -4900077339660789354
       Buildings_30: -958646507814119845
-      Buildings_3: -5075879681021990956
+      Buildings_32: 933288632240285052
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
