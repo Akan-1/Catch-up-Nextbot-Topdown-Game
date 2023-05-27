@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D rb;
     private PauseMenuBehaviour _pause;
+    private Animator _animator;
     #endregion
 
     [Header("Attack")]
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         _currentMovementSpeed = _defaultMovementSpeed;
         _defaultStaminaValue = _stamina;
         _camera = Camera.main.GetComponent<CameraBehaviour>();
+        _animator = GetComponent<Animator>();
     }
 
 	private void Update()
@@ -71,10 +73,20 @@ public class PlayerController : MonoBehaviour
 	#region Player Methods
 	private void Walk()
 	{
+        bool isMoving = false;
+        
         _direction.x = Input.GetAxisRaw("Horizontal");
         _direction.y = Input.GetAxisRaw("Vertical");
 
-        rb.MovePosition(rb.position + _direction * _currentMovementSpeed * Time.fixedDeltaTime);
+        Vector2 movement = new Vector2(_direction.x, _direction.y).normalized;
+
+        if (movement != Vector2.zero)
+            isMoving = true;
+
+        _animator.SetBool("isMoving", isMoving);
+
+
+        rb.MovePosition(rb.position + movement * _currentMovementSpeed * Time.fixedDeltaTime);
 
     }
 
