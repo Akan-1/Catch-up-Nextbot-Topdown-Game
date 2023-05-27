@@ -29,6 +29,5 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("HighLevel", _level);
         PlayerPrefs.SetInt("Level", 1);
         _losePanel.SetActive(true);
-        Time.timeScale = 0;
     }
 }

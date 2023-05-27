@@ -17,6 +17,12 @@ public class CameraBehaviour : MonoBehaviour
 	private Vector3 _targetPosition;
 	private Camera _main;
 
+	public float SetCameraSize
+	{
+		get => _originalCameraSize;
+		set => _originalCameraSize = value;
+	}
+
 	private void Start()
 	{
 		_main = Camera.main;

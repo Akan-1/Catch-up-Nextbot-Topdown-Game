@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _staminaMinimumValue;
     
     private float _defaultStaminaValue;
-
+    private bool _isAlive = true;
     private CameraBehaviour _camera;
 	#endregion
 
@@ -59,15 +59,21 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-        LookAtMouse();
-        Sprint();
-        CheckPressButton();
-        Attack();
+        if (_isAlive)
+        {
+            LookAtMouse();
+            Sprint();
+            CheckPressButton();
+            Attack();
+        }
     }
 
     private void FixedUpdate()
     {
-        Walk();
+        if (_isAlive)
+        {
+            Walk();
+        }
     }
 
 	#region Player Methods
@@ -163,6 +169,12 @@ public class PlayerController : MonoBehaviour
 		{
             _defaultAttackDelay -= Time.deltaTime;
 		}
+	}
+
+    public void SetDieAnimation()
+	{
+        _isAlive = false;
+        _animator.SetBool("isDeath", true);
 	}
 
     private void OnDrawGizmosSelected()
