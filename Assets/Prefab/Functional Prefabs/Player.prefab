@@ -343,8 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultMovementSpeed: 15
   _runMovementSpeed: 25
-  _stamina: 15
-  _staminaReduction: 0.01
+  _stamina: 20
+  _staminaReduction: 0.03
   _staminaMinimumValue: 5
   _defaultAttackDelay: 1
   _attackDamage: 10
