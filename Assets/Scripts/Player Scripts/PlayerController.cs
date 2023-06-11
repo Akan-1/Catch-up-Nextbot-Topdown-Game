@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _staminaMinimumValue;
     
     private float _defaultStaminaValue;
-
+    private bool _isAlive = true;
     private CameraBehaviour _camera;
 	#endregion
 
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D rb;
     private PauseMenuBehaviour _pause;
+    private Animator _animator;
     #endregion
 
     [Header("Attack")]
@@ -53,28 +54,45 @@ public class PlayerController : MonoBehaviour
         _currentMovementSpeed = _defaultMovementSpeed;
         _defaultStaminaValue = _stamina;
         _camera = Camera.main.GetComponent<CameraBehaviour>();
+        _animator = GetComponent<Animator>();
     }
 
 	private void Update()
 	{
-        LookAtMouse();
-        Sprint();
-        CheckPressButton();
-        Attack();
+        if (_isAlive)
+        {
+            LookAtMouse();
+            Sprint();
+            CheckPressButton();
+            Attack();
+        }
     }
 
     private void FixedUpdate()
     {
-        Walk();
+        if (_isAlive)
+        {
+            Walk();
+        }
     }
 
 	#region Player Methods
 	private void Walk()
 	{
+        bool isMoving = false;
+        
         _direction.x = Input.GetAxisRaw("Horizontal");
         _direction.y = Input.GetAxisRaw("Vertical");
 
-        rb.MovePosition(rb.position + _direction * _currentMovementSpeed * Time.fixedDeltaTime);
+        Vector2 movement = new Vector2(_direction.x, _direction.y).normalized;
+
+        if (movement != Vector2.zero)
+            isMoving = true;
+
+        _animator.SetBool("isMoving", isMoving);
+
+
+        rb.MovePosition(rb.position + movement * _currentMovementSpeed * Time.fixedDeltaTime);
 
     }
 
@@ -151,6 +169,12 @@ public class PlayerController : MonoBehaviour
 		{
             _defaultAttackDelay -= Time.deltaTime;
 		}
+	}
+
+    public void SetDieAnimation()
+	{
+        _isAlive = false;
+        _animator.SetBool("isDeath", true);
 	}
 
     private void OnDrawGizmosSelected()

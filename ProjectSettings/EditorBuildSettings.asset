@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Backrooms.unity
     guid: 6e6a9e29fb0ba3f4d8fefc1da7fa0bb5
+  - enabled: 1
+    path: Assets/Scenes/DriveMap.unity
+    guid: 86bf141f82a56074ea7641e49d4f3c7f
   m_configObjects: {}

@@ -15,8 +15,8 @@ public enum Tasks
 
 public class TaskManager : MonoBehaviour
 {
-    [SerializeField, Range(4, 25)] private int _maxCount = 5;
-    [SerializeField, Range(4, 25)] private int _maxCountObligatory = 5;
+    [SerializeField, Range(0, 25)] private int _maxCount = 5;
+    [SerializeField, Range(0, 25)] private int _maxCountObligatory = 5;
 
     private int _count;
     private int _taskID;
