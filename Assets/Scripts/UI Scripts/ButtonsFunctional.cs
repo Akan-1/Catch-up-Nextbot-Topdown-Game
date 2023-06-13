@@ -23,7 +23,7 @@ public class ButtonsFunctional : MonoBehaviour
 	
 	public void AsyncRandomLoadScene()
 	{
-		StartCoroutine(AsyncLoadSceneCoroutine(Random.Range(1, SceneManager.sceneCountInBuildSettings)));
+		StartCoroutine(AsyncLoadSceneCoroutine(Random.Range(1, SceneManager.sceneCountInBuildSettings + 1)));
 	}
 
 	private IEnumerator AsyncLoadSceneCoroutine(int sceneIndex)
