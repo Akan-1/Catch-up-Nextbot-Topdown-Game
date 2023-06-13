@@ -307,6 +307,7 @@ MonoBehaviour:
   GameOnPaused: 0
   PauseUI: {fileID: 4044708198016086081}
   settingsPanel: {fileID: 4044708199262621940}
+  _basicButtons: {fileID: 4044708198797707251}
 --- !u!1 &4044708197821165394
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 381.489, y: 50}
+  m_AnchoredPosition: {x: -4.9998, y: 0.000060081}
+  m_SizeDelta: {x: 485.53, y: 89.292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4044708198128949226
 CanvasRenderer:
@@ -831,7 +832,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1218,7 +1219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4044708198505305816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 0}
   _text: {fileID: 0}
+  _volumeSlider: {fileID: 0}
   _parameterName: 
   _sliderName: 
 --- !u!1 &4044708198713247072
@@ -2105,6 +2107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: b2c05010164f3cb40bce97c814e687e6, type: 2}
   _text: {fileID: 4044708198128949227}
+  _volumeSlider: {fileID: 4044708198969532418}
   _parameterName: NextbotsMixerParam
   _sliderName: 'Nextbots Volume '
 --- !u!1 &4044708198973722710
@@ -2567,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 0}
   _text: {fileID: 0}
+  _volumeSlider: {fileID: 0}
   _parameterName: 
   _sliderName: 
 --- !u!1 &4044708199541851529

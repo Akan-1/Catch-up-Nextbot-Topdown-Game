@@ -12,6 +12,7 @@ public class PauseMenuBehaviour : MonoBehaviour
 
 	#region PauseLogic
 	[SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject _basicButtons;
 
 	public void Resume()
 	{
@@ -21,6 +22,7 @@ public class PauseMenuBehaviour : MonoBehaviour
 	}
 	private void Pause()
 	{
+		_basicButtons.SetActive(true);
 		GameOnPaused = true;
 		Time.timeScale = 0f;
 		PauseUI.SetActive(GameOnPaused);	
